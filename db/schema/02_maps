@@ -1,0 +1,10 @@
+-- maps example data
+DROP TABLE IF EXISTS maps CASCADE;
+CREATE TABLE "maps" (
+  "id" integer PRIMARY KEY,
+  "user_id" integer,
+  "title" text,
+  "description" text
+);
+
+ALTER TABLE "maps" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
