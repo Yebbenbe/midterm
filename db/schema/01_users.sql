@@ -1,4 +1,4 @@
--- Drop and recreate Users table (Example)
+-- Drop and recreate Users table (Example) - test
 
 DROP TABLE IF EXISTS users CASCADE;
 CREATE TABLE users (
