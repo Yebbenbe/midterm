@@ -1,11 +1,6 @@
--- favorites example data 
 DROP TABLE IF EXISTS favorites CASCADE;
 CREATE TABLE "favorites" (
-  "id" integer,
-  "user_id" integer,
-  "map_id" integer
+  id SERIAL PRIMARY KEY NOT NULL,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  map_id INTEGER REFERENCES maps(id) ON DELETE CASCADE
 );
-
-ALTER TABLE "favorites" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
-
-ALTER TABLE "favorites" ADD FOREIGN KEY ("map_id") REFERENCES "maps" ("id");

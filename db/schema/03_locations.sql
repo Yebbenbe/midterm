@@ -1,12 +1,10 @@
 DROP TABLE IF EXISTS locations CASCADE;
 CREATE TABLE "locations" (
-  "id" integer PRIMARY KEY,
-  "map_id" integer,
-  "title" text,
-  "description" text,
-  "latitude" float,
-  "longitude" float,
-  "image_url" text
+  id SERIAL PRIMARY KEY NOT NULL,
+  map_id INTEGER REFERENCES maps(id) ON DELETE CASCADE,
+  title TEXT NOT NULL,
+  description TEXT,
+  latitude FLOAT,
+  longitude FLOAT,
+  image_url TEXT
 );
-
-ALTER TABLE "locations" ADD FOREIGN KEY ("map_id") REFERENCES "maps" ("id");
