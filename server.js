@@ -60,6 +60,10 @@ app.get('/favourites', (req, res) => {
   res.render('favourites');
 });
 
+app.get('/userid/maps', (req, res) => {
+  res.render('usermaps');
+});
+
 app.get('/practice', (req, res) => {
   res.render('practice');
 });
