@@ -56,6 +56,10 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+app.get('/favourites', (req, res) => {
+  res.render('favourites');
+});
+
 app.get('/practice', (req, res) => {
   res.render('practice');
 });
