@@ -4,5 +4,7 @@ CREATE TABLE "maps" (
   user_id INTEGER REFERENCES users(id),
   title TEXT NOT NULL,
   description TEXT,
-  image TEXT
+  image TEXT,
+  latitude FLOAT,
+  longitude FLOAT
 );
