@@ -18,19 +18,24 @@
             <a class="nav-link" href="#">Create New Map</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/mymaps/userid">My Maps</a>
+            <a class="nav-link" href="/mymaps">My Maps</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/favourites">Favourites</a>
           </li>
         </ul>
-  
-        <!-- Login Form -->
-        <form class="form-inline ml-auto">
+
+        <!-- User cookie authentication -->
+        <form class="form-inline ml-auto" method="POST" action="/login">
           <div class="form-group">
-            <input type="text" class="form-control mr-2" placeholder="Set Username">
+            <input class="form-control mr-2" type="text" name="username" placeholder="Set Username">
           </div>
-          <button type="submit" class="btn btn-primary">Go!</button>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+        <form class="form-inline ml-auto" method="POST" action="/logout">
+          <div>
+            <button type="submit" class="btn btn-danger" >Logout</button>
+          </div>
         </form>
       </div>
     </div>

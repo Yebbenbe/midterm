@@ -1,16 +1,14 @@
-// clear cookie, redirect to /login
+/* 
+these routes are mounted onto >>> /logout <<< 
+(see server.js routing) 
+*/
 
 const express = require('express');
 const router  = express.Router();
 
-module.exports = (db) => {
-
-  router.post("/", (req, res) => {
-    req.session["user_id"] = null;
-    res.redirect("/maps");
-  });
-
-  return router;
-};
+router.post("/", (req, res) => {
+  res.clearCookie('username');
+  res.redirect("/");
+});
 
 module.exports = router;
