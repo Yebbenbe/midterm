@@ -5,6 +5,32 @@
 };
 
 .map-info {
-  margin: 20px;
-  color: darkblue;
+  margin: 10px;
+  color: rgb(5, 5, 181);
+  text-align: center;
 };
+
+#new-location-form, #new-map-form {
+  width: 500px;
+  margin: auto;
+  padding-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  background-color: #333;
+  border-color: none;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.new-location-container, .new-map-container {
+  background-color: #909dac; 
+  padding: 10px; /* Add padding to the container */
+  width: 80%; /* 95% of screen width */
+  margin: auto;
+  box-sizing: border-box; /* Include padding and border in the total width and height */
+}
