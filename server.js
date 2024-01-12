@@ -60,8 +60,12 @@ app.get('/favourites', (req, res) => {
   res.render('favourites');
 });
 
-app.get('/userid/maps', (req, res) => {
-  res.render('usermaps');
+app.get('/viewmap/mapid', (req, res) => {
+  res.render('viewmap');
+});
+
+app.get('/mymaps/userid', (req, res) => {
+  res.render('mymaps');
 });
 
 app.get('/practice', (req, res) => {
