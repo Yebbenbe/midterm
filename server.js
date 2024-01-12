@@ -57,7 +57,7 @@ app.use('/login', loginRoutes);
 app.use('/logout', logoutRoutes);
 app.use('/map', mapRoutes);
 app.use('/mymaps', mymapsRoutes);
-app.use('/favourites', favouritesRoutes)
+app.use('/favourites', favouritesRoutes);
 app.use('/api/maps', mapApiRoutes);
 
 
