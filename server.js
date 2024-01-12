@@ -1,3 +1,7 @@
+/////////////////////////////////////////////////////////////////////////////
+// Configuration and Middleware
+/////////////////////////////////////////////////////////////////////////////
+
 // load .env data into process.env
 require('dotenv').config();
 
@@ -31,47 +35,42 @@ app.use(
 );
 app.use(express.static('public'));
 
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Routing
+/////////////////////////////////////////////////////////////////////////////
+
 // Separated Routes for each Resource
-// Note: Feel free to replace the example routes below with your own
 const userApiRoutes = require('./routes/users-api');
-const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
+
 const loginRoutes = require('./routes/login');
 const logoutRoutes = require('./routes/logout');
+const mapRoutes = require('./routes/map');
+const mymapsRoutes = require('./routes/mymaps');
+const favouritesRoutes = require('./routes/favourites');
 
 // Mount all resource routes
-// Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 app.use('/api/users', userApiRoutes);
-app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
-// Note: mount other resources here, using the same pattern above
-// FIGURE OUT HOW TO DO THIS
+app.use('/login', loginRoutes);
+app.use('/logout', logoutRoutes);
+app.use('/map', mapRoutes);
+
+app.use('/mymaps', mymapsRoutes);
+app.use('/favourites', favouritesRoutes);
+
 
 // Home page
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
-
 app.get('/', (req, res) => {
   res.render('index');
-});
-
-app.get('/favourites', (req, res) => {
-  res.render('favourites');
-});
-
-app.get('/viewmap/mapid', (req, res) => {
-  res.render('viewmap');
-});
-
-app.get('/mymaps/userid', (req, res) => {
-  res.render('mymaps');
 });
 
 app.get('/practice', (req, res) => {
   res.render('practice');
 });
-
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
