@@ -24,13 +24,12 @@
   background-color: #333;
   border-color: none;
   color: #fff;
-  margin-bottom: 20px;
 }
 
 .new-location-container, .new-map-container {
   background-color: #909dac; 
-  padding: 10px; /* Add padding to the container */
-  width: 80%; /* 95% of screen width */
+  padding: 10px;
+  width: 80%; 
   margin: auto;
-  box-sizing: border-box; /* Include padding and border in the total width and height */
+  box-sizing: border-box;
 }
