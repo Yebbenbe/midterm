@@ -12,8 +12,7 @@ const morgan = require('morgan');
 
 // db requirements
 const { Pool } = require('pg'); // check this
-// need to import db.js somehow - check last project
-// this might be done by .env file
+const db = require('./db/connection.js');
 
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -44,23 +43,22 @@ app.use(express.static('public'));
 // Separated Routes for each Resource
 const userApiRoutes = require('./routes/users-api');
 const usersRoutes = require('./routes/users');
-
 const loginRoutes = require('./routes/login');
 const logoutRoutes = require('./routes/logout');
 const mapRoutes = require('./routes/map');
 const mymapsRoutes = require('./routes/mymaps');
 const favouritesRoutes = require('./routes/favourites');
+const mapApiRoutes = require('./routes/maps-api');
 
-// Mount all resource routes
-// Note: Endpoints that return data (eg. JSON) usually start with `/api`
+// Mount all resource routes. Note: Endpoints that return data (eg. JSON) usually start with `/api`
 app.use('/api/users', userApiRoutes);
 app.use('/users', usersRoutes);
 app.use('/login', loginRoutes);
 app.use('/logout', logoutRoutes);
 app.use('/map', mapRoutes);
-
 app.use('/mymaps', mymapsRoutes);
-app.use('/favourites', favouritesRoutes);
+app.use('/favourites', favouritesRoutes)
+app.use('/api/maps', mapApiRoutes);
 
 
 // Home page
