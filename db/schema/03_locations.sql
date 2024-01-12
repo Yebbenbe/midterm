@@ -4,7 +4,9 @@ CREATE TABLE "locations" (
   map_id INTEGER REFERENCES maps(id) ON DELETE CASCADE,
   title TEXT NOT NULL,
   description TEXT,
+  -- point coordinates
   latitude FLOAT,
   longitude FLOAT,
+  -- infobox image
   image_url TEXT
 );

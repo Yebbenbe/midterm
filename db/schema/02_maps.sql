@@ -5,4 +5,9 @@ CREATE TABLE "maps" (
   title TEXT NOT NULL,
   description TEXT,
   image TEXT
+  -- centerpoint coordinates
+  latitude number,
+  longitude number,
+  -- zoom from centerpoint
+  zoom_level integer
 );
