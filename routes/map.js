@@ -12,11 +12,12 @@ router.get('/create', (req, res) => {
   res.render('createmap.ejs');
 });
 
-router.get('/view/id', (req, res) => {
+// here, id must feed to initialize_maps.js
+router.get('/view/:id', (req, res) => {
   res.render('viewmap.ejs');
 });
 
-router.get('/edit/id', (req, res) => {
+router.get('/edit/:id', (req, res) => {
   res.render('editmap.ejs');
 });
 

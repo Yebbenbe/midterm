@@ -2,12 +2,15 @@
 
 //import these queries
 const {getMapByID, getAllLocations} = require('../db/queries');
+const path = window.location.pathname; // /map/view/id ?
+const id = path.split('/')[3]; // id ?
 
 // iitialize and add the map
 async function initMap() {
   try {
     // Fetch map details from the database
-    const mapData = await getMapByID(/* MAP ID id on't remember */);
+    //
+    const mapData = await getMapByID(id);  // MAP ID go here ?
 
     // Ensure that mapData is not empty
     if (!mapData || mapData.length === 0) {
