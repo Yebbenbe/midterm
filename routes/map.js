@@ -8,8 +8,17 @@ these routes are mounted onto >>> '/map' <<<
 const express = require('express');
 const router  = express.Router();
 
+router.get('/create', (req, res) => {
+  res.render('createmap.ejs');
+});
+
 router.get('/view/id', (req, res) => {
   res.render('viewmap.ejs');
 });
+
+router.get('/edit/id', (req, res) => {
+  res.render('editmap.ejs');
+});
+
 
 module.exports = router;

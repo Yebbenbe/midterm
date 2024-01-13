@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+  <title>WikiMaps Homepage</title>
+
+  <!-- External CSS (Bootstrap, fonts, symbols) -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+  integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+  crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/header.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/map.css" />
+
+
+  <!-- App JS -->
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/app.js"></script>
+</head>
+
+<body>
+  <header>
+    <%- include('partials/_header.ejs') %>
+  </header>
+  <p></p>
+  <div class="new-map-container">
+    <form id="new-map-form">
+      <h3 class="page-title">Add New Map</h3>
+      <div class="form-group">
+        <label for="locationTitle">Map Title</label>
+        <input type="text" class="form-control" id="mapTitle" name="map-title" required>
+      </div>
+    
+      <div class="form-group">
+        <label for="map-description">Map Description</label>
+        <textarea type="text" class="form-control" id="map-description" name="map-description" rows="3"></textarea>
+      </div>
+    
+      <div class="form-group">
+        <label for="map-image">Image Url</label>
+        <input type="text" class="form-control" id="map-image" name="map-image">
+      </div>
+
+      <div class="form-group">
+        <label for="map-image">Latitude you want to center map view on</label>
+        <input type="text" class="form-control" id="map-latitude" name="map-latitude">
+      </div>
+
+      <div class="form-group">
+        <label for="map-image">Longitute you want to center map view on</label>
+        <input type="text" class="form-control" id="map-longitude" name="map-longitude">
+      </div>
+    
+      <center><button type="submit" class="btn btn-primary">Create</button></center>
+    </form>
+  </div>
+
+</body>
+</html>

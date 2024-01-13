@@ -11,3 +11,4 @@ CREATE TABLE "maps" (
   -- zoom from centerpoint
   zoom_level integer
 );
+
