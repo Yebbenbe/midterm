@@ -6,7 +6,7 @@ these routes are mounted onto >>> '/api/maps' <<<
 const express = require('express');
 const router  = express.Router();
 const mapQuery1 = require('../db/queries/get_all_maps');
-const mapQuery2 = require('../db/queries/get_map_by_id');
+const mapQuery2 = require('../db/queries/get_maps_by_userid');
 
 
 router.get('/all', (req, res) => {
@@ -23,7 +23,7 @@ router.get('/all', (req, res) => {
 
 router.get('/:id', (req, res) => {
   const userId = req.cookies.user_id; // Retrieve user ID from the cookie
-  mapQuery2.getMapByID(userId)
+  mapQuery2.getMapsByUserID(userId)
     .then(mymaps => {
       res.json({ mymaps });
     })

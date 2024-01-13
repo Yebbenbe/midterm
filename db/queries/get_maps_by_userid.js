@@ -1,6 +1,6 @@
 const db = require('../connection');
 
-const getMapByID = function (userId) {
+const getMapsByUserID = function (userId) {
   return db
     .query(`
     SELECT maps.id AS map_id, 
@@ -21,4 +21,4 @@ const getMapByID = function (userId) {
     });
 };
 
-module.exports = {getMapByID};
+module.exports = {getMapsByUserID};
