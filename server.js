@@ -64,7 +64,8 @@ app.use('/api/maps', mapApiRoutes);
 
 // Home page
 app.get('/', (req, res) => {
-  res.render('index');
+  const userId = req.cookies.user_id;
+  res.render('index', { user_id: userId });
 });
 
 app.get('/practice', (req, res) => {

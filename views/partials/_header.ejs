@@ -25,18 +25,24 @@
           </li>
         </ul>
 
-        <!-- User cookie authentication -->
-        <form class="form-inline ml-auto" method="POST" action="/login">
-          <div class="form-group">
-            <input class="form-control mr-2" type="text" name="user_id" placeholder="Enter User ID">
+        <!-- Display message + logout button IF logged in -->
+        <% if (typeof user_id !== 'undefined' && user_id !== null) { %>
+          <div class="ml-auto d-flex align-items-center">
+            <p class="text-light mr-3">Logged in</p>
+            <form class="form-inline" method="POST" action="/logout">
+              <button type="submit" class="btn btn-danger">Logout</button>
+            </form>
           </div>
-          <button type="submit" class="btn btn-primary">Login</button>
-        </form>
-        <form class="form-inline ml-auto" method="POST" action="/logout">
-          <div>
-            <button type="submit" class="btn btn-danger">Logout</button>
-          </div>
-        </form>
+        <% } else { %>
+          <!-- Display login form IF not logged in -->
+          <form class="form-inline ml-auto" method="POST" action="/login">
+            <div class="form-group">
+              <input class="form-control mr-2" type="text" name="user_id" placeholder="Enter User ID">
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
+        <% } %>
+
       </div>
     </div>
   </nav>

@@ -9,16 +9,19 @@ const express = require('express');
 const router  = express.Router();
 
 router.get('/create', (req, res) => {
-  res.render('createmap.ejs');
+  const userId = req.cookies.user_id;
+  res.render('createmap.ejs', { user_id: userId });
 });
 
 // here, id must feed to initialize_maps.js
 router.get('/view/:id', (req, res) => {
-  res.render('viewmap.ejs');
+  const userId = req.cookies.user_id;
+  res.render('viewmap.ejs', { user_id: userId });
 });
 
 router.get('/edit/:id', (req, res) => {
-  res.render('editmap.ejs');
+  const userId = req.cookies.user_id;
+  res.render('editmap.ejs', { user_id: userId });
 });
 
 
