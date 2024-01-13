@@ -7,6 +7,7 @@ const express = require('express');
 const router  = express.Router();
 const mapQuery1 = require('../db/queries/get_all_maps');
 const mapQuery2 = require('../db/queries/get_maps_by_userid');
+const mapQuery3 = require('../db/queries/get_locations_by_mapid');
 
 
 router.get('/all', (req, res) => {
@@ -34,5 +35,17 @@ router.get('/:id', (req, res) => {
     });
 });
 
+router.get('/locations/:mapid', (req, res) => {
+  const mapId = req.params.mapid; 
+  mapQuery3.getLocationsByMapId(mapId)
+    .then(locations => {
+      res.json({ locations });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
 
 module.exports = router;
