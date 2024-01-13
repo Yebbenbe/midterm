@@ -1,6 +1,6 @@
-/* 
-these routes are mounted onto >>> '/api/maps' <<< 
-(see server.js routing) 
+/*
+these routes are mounted onto >>> '/api/maps' <<<
+(see server.js routing)
 */
 
 const express = require('express');
