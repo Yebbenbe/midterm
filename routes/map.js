@@ -22,12 +22,14 @@ router.get('/edit/id', (req, res) => {
 });
 
 router.post('/create', (req, res) => {
-  helpers.createMap(req.body).then(
-    function() {
-      res.redirect('/mymaps');
-    }
-  );
+  if (res.cookie) {
+    helpers.createMap(req.body).then(
+      function() {
+        res.redirect('/mymaps');
+      }
+    );
+  }
+  res.redirect('/map/create');
 });
-
 
 module.exports = router;
