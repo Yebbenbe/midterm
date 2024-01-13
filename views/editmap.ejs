@@ -36,7 +36,7 @@
   <h3 class="page-title">Edit Map Locations</h3>
 
   <div class="map-info">
-    <h4>Map Title</h4>
+    <h4><%= title %></h4>
     <!-- Use data attributes to store map center_lat and center_long values -->
     <div id="map-data" data-center-lat="<%= center_lat %>" data-center-long="<%= center_long %>"></div>
   </div>
@@ -58,7 +58,7 @@
       const { Map } = await google.maps.importLibrary("maps");
       map = new Map(document.getElementById("map-view"), {
         center: { lat: parseFloat(centerLat), lng: parseFloat(centerLong) },
-        zoom: 6,
+        zoom: 11,
       });
       
       getLocations();
