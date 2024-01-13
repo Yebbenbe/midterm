@@ -25,6 +25,7 @@
   <!-- App JS -->
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
+  <script defer src="/scripts/edit_map.js"></script>
 </head>
 
 <body>
@@ -41,13 +42,16 @@
   </div>
 
   <div id="map-view"></div>
+
   <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
-  ({key: "AIzaSyAkQ6muGymcHGhzEpupVdlcjZ9OXMfMuTg", v: "weekly"});</script>
+  ({key: "AIzaSyAkQ6muGymcHGhzEpupVdlcjZ9OXMfMuTg", v: "weekly"});
+  </script>
 
   <script>
     const mapDataElement = document.getElementById('map-data'); //see line 40 for reference
     const centerLat = mapDataElement.getAttribute('data-center-lat');
     const centerLong = mapDataElement.getAttribute('data-center-long');
+    
     let map;
 
     async function initMap() {
@@ -57,21 +61,7 @@
         zoom: 6,
       });
       
-      // add marker + info window with location title, description and image
-      const markerView = new google.maps.Marker({
-        map,
-        position: { lat: 37, lng: -122 },
-      });
-
-      const infoWindow = new google.maps.InfoWindow({
-      content: `
-      <center><div>Location Title HERE</div>
-      <div><small>Location Description HERE</small></div>
-      <div><img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/add-image-6-691922.png" width="100" height="100"></div></center>`,
-      });
-      markerView.addListener('click', function () {
-        infoWindow.open(map, markerView);
-      });
+      getLocations();
     }
     initMap();
   </script>
@@ -91,13 +81,13 @@
       </div>
     
       <div class="form-group">
-        <label for="latitude">Latitude</label>
-        <input type="text" class="form-control" id="latitude" name="latitude" required>
+        <label for="location-latitude">Latitude</label>
+        <input type="text" class="form-control" id="location-latitude" name="location-latitude" required>
       </div>
     
       <div class="form-group">
-        <label for="longitude">Longitude</label>
-        <input type="text" class="form-control" id="longitude" name="longitude" required>
+        <label for="location-longitude">Longitude</label>
+        <input type="text" class="form-control" id="location-longitude" name="location-longitude" required>
       </div>
     
       <div class="form-group">

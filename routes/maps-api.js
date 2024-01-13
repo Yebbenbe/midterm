@@ -48,4 +48,20 @@ router.get('/locations/:mapid', (req, res) => {
     });
 });
 
+
+router.post('/locations/:mapid', (req, res) => {
+  const mapId = req.params.mapid;
+  // Use req.body to get the form data
+  const locationData = req.body;
+
+  // Call the createLocation function to add the location to the database
+  mapQuery3.createLocation(mapId, locationData)
+    .then(() => {
+      res.status(201).send('Location added successfully');
+    })
+    .catch(err => {
+      res.status(500).json({ error: err.message });
+    });
+});
+
 module.exports = router;

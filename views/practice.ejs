@@ -16,8 +16,36 @@
       ({ key: "AIzaSyAkQ6muGymcHGhzEpupVdlcjZ9OXMfMuTg", v: "weekly" });</script>
 
   <!-- Use Maps API -->
-  <script src="scripts/map.js"></script>
-  
+  <script>
+    let map;
+    async function initMap() {
+      const { Map, InfoWindow } = await google.maps.importLibrary("maps");
+      map = new Map(document.getElementById("map"), {
+        center: { lat: 70, lng: 80 },
+        zoom: 6,
+      });
+    
+    // HARDCODED EXAMPLE: add marker + info window with location title, description and image
+      const markerView = new google.maps.Marker({
+        map,
+        position: { lat: 37, lng: -122 },
+      });
+
+      const infoWindow = new google.maps.InfoWindow({
+      content: `
+        <center><div>Location Title HERE</div>
+        <div><small>Location Description HERE</small></div>
+        <div><img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/add-image-6-691922.png" width="100" height="100"></div></center>`,
+      });
+      markerView.addListener('click', function () {
+        infoWindow.open(map, markerView);
+      });
+    }
+
+    initMap();
+  </script>
+  </div>
+
 </body>
 
 </html>

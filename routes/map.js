@@ -9,6 +9,7 @@ const express = require('express');
 const router  = express.Router();
 const mapQuery = require('../db/queries/create_map');
 const mapQuery2 = require('../db/queries/get_map_by_mapid.js')
+const mapQuery3 = require('../db/queries/create_locations')
 
 router.get('/create', (req, res) => {
   const userId = req.cookies.user_id;
@@ -32,6 +33,14 @@ router.get('/edit/:id', (req, res) => {
       center_long: map.center_long,
     });
   });
+});
+
+router.post('/edit/:id', (req, res) => {
+  // Fetch map data by ID, including center_lat and center_long
+  mapQuery3.createLocation(req.body).then(
+    function() {
+      res.redirect('/mymaps');
+    })
 });
 
 router.post('/create', (req, res) => {
