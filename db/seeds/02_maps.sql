@@ -1,6 +1,6 @@
 -- maps example data
 INSERT INTO maps (user_id, title, description, image, center_lat, center_long) VALUES
-(1, 'Best Cafes in Town', 'Explore amazing dining experiences', 'https://www.posist.com/restaurant-times/wp-content/uploads/2023/07/How-To-Start-A-Coffee-Shop-Business-A-Complete-Guide.jpg', 37.7749, -122.4194),
+(1, 'Best Cafes in Town', 'Explore amazing dining experiences', 'https://www.posist.com/restaurant-times/wp-content/uploads/2023/07/How-To-Start-A-Coffee-Shop-Business-A-Complete-Guide.jpg', 40.7128, -74.0060),
   (2, 'Historical Landmarks', 'Discover the rich history of our city', 'https://images.nationalgeographic.org/image/upload/v1638892272/EducationHub/photos/hoh-river-valley.jpg', 34.0522, -118.2437),
   (3, 'Hidden Gems', 'Locate less-known but fascinating places', 'https://cityfurnish.com/blog/wp-content/uploads/2023/08/beach-near-hotel-min.jpg', 41.8781, -87.6298),
   (4, 'Movie Filming Locations', 'Visit spots featured in famous films', 'https://www.ualberta.ca/newtrail/media-library/issues/2016-winter/bear-country/bc-mountains-matter-1200.jpg', 34.0522, -118.2437),
