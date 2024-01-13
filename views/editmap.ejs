@@ -40,7 +40,7 @@
 
   <div id="map-view">
     <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
-    ({key: "AIzaSyAkQ6muGymcHGhzEpupVdlcjZ9OXMfMuTg", v: "weekly"});</script>
+    ({key: process.env.API_KEY, v: "weekly"});</script>
 
     <script>
       let map;
@@ -62,27 +62,27 @@
         <label for="location-title">Location Title</label>
         <input type="text" class="form-control" id="location-title" name="location-title" required>
       </div>
-    
+
       <div class="form-group">
         <label for="location-description">Location Description</label>
         <textarea type="text" class="form-control" id="location-description" name="location-description" rows="3"></textarea>
       </div>
-    
+
       <div class="form-group">
         <label for="latitude">Latitude</label>
         <input type="text" class="form-control" id="latitude" name="latitude" required>
       </div>
-    
+
       <div class="form-group">
         <label for="longitude">Longitude</label>
         <input type="text" class="form-control" id="longitude" name="longitude" required>
       </div>
-    
+
       <div class="form-group">
         <label for="location-image">Image Url</label>
         <input type="text" class="form-control" id="location-image" name="location-image">
       </div>
-    
+
       <center><button type="submit" class="btn btn-primary">Add</button></center>
     </form>
   </div>
