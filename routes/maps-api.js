@@ -22,7 +22,8 @@ router.get('/all', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  mapQuery2.getMapByID()
+  const userId = req.cookies.user_id; // Retrieve user ID from the cookie
+  mapQuery2.getMapByID(userId)
     .then(mymaps => {
       res.json({ mymaps });
     })

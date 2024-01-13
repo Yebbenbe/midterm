@@ -9,6 +9,7 @@ require('dotenv').config();
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
 
 // db requirements
 const { Pool } = require('pg'); // check this
@@ -33,7 +34,7 @@ app.use(
   })
 );
 app.use(express.static('public'));
-
+app.use(cookieParser());
 
 
 /////////////////////////////////////////////////////////////////////////////
