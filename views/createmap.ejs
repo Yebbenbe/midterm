@@ -33,18 +33,18 @@
   </header>
   <p></p>
   <div class="new-map-container">
-    <form id="new-map-form">
+    <form action="/map/create" method="post" id="new-map-form">
       <h3 class="page-title">Add New Map</h3>
       <div class="form-group">
         <label for="locationTitle">Map Title</label>
         <input type="text" class="form-control" id="mapTitle" name="map-title" required>
       </div>
-    
+
       <div class="form-group">
         <label for="map-description">Map Description</label>
         <textarea type="text" class="form-control" id="map-description" name="map-description" rows="3"></textarea>
       </div>
-    
+
       <div class="form-group">
         <label for="map-image">Image Url</label>
         <input type="text" class="form-control" id="map-image" name="map-image">
@@ -56,10 +56,10 @@
       </div>
 
       <div class="form-group">
-        <label for="map-image">Longitute you want to center map view on</label>
+        <label for="map-image">Longitude you want to center map view on</label>
         <input type="text" class="form-control" id="map-longitude" name="map-longitude">
       </div>
-    
+
       <center><button type="submit" class="btn btn-primary">Create</button></center>
     </form>
   </div>

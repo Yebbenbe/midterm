@@ -3,7 +3,7 @@ const db = require('../connection');
 const getAllMaps = function () {
   return db
     .query(`
-      SELECT maps.id AS map_id, 
+      SELECT maps.id AS map_id,
       maps.user_id, maps.title,
       maps.description,
       maps.image,
@@ -21,4 +21,11 @@ const getAllMaps = function () {
     });
 };
 
-module.exports = { getAllMaps };
+const createMap = function (map) {
+  return db.query(`
+  INSERT INTO maps (user_id, title, description, image, latitude, longitude)
+  VALUES ($1, $2, $3, $4, $5, $6)
+  `, [1, map['map-title'], map['map-description'], map['map-image'], map['map-latitude'], map['map-longitude']]);
+};
+
+module.exports = { getAllMaps, createMap };

@@ -9,6 +9,7 @@ require('dotenv').config();
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
 
 // db requirements
 const { Pool } = require('pg'); // check this
@@ -33,7 +34,7 @@ app.use(
   })
 );
 app.use(express.static('public'));
-
+app.use(cookieParser());
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -57,13 +58,14 @@ app.use('/login', loginRoutes);
 app.use('/logout', logoutRoutes);
 app.use('/map', mapRoutes);
 app.use('/mymaps', mymapsRoutes);
-app.use('/favourites', favouritesRoutes)
+app.use('/favourites', favouritesRoutes);
 app.use('/api/maps', mapApiRoutes);
 
 
 // Home page
 app.get('/', (req, res) => {
-  res.render('index');
+  const userId = req.cookies.user_id;
+  res.render('index', { user_id: userId });
 });
 
 app.get('/practice', (req, res) => {

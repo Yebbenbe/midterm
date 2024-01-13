@@ -9,7 +9,8 @@ const express = require('express');
 const router  = express.Router();
 
 router.get('/', (req, res) => {
-  res.render('favourites.ejs');
+  const userId = req.cookies.user_id;
+  res.render('favourites.ejs', { user_id: userId });
 }); 
 
 module.exports = router;
