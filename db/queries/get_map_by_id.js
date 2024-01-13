@@ -9,7 +9,7 @@ const getMapByID = function (userId) {
     maps.image,
     users.name AS username
     FROM maps JOIN users ON maps.user_id = users.id
-    WHERE maps.id = $1
+    WHERE users.id = $1
     `, [userId])
     .then(data => {
       return data.rows;
