@@ -12,7 +12,6 @@ router.get('/create', (req, res) => {
   res.render('createmap.ejs');
 });
 
-// here, id must feed to initialize_maps.js
 router.get('/view/:id', (req, res) => {
   res.render('viewmap.ejs');
 });
