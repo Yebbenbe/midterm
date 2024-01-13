@@ -7,6 +7,8 @@ const getAllMaps = function () {
       maps.user_id, maps.title,
       maps.description,
       maps.image,
+      maps.center_lat,
+      maps.center_long,
       users.name AS username
       FROM maps JOIN users ON maps.user_id = users.id
     `)

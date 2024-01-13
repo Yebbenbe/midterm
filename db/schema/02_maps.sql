@@ -4,11 +4,8 @@ CREATE TABLE "maps" (
   user_id INTEGER REFERENCES users(id),
   title TEXT NOT NULL,
   description TEXT,
-  image TEXT
-  -- centerpoint coordinates
-  center_lat float,
-  center_long float,
-  -- zoom from centerpoint
+  image TEXT,
+  center_lat decimal,
+  center_long decimal,
   zoom_level integer
 );
-
