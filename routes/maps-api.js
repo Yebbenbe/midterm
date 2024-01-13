@@ -5,7 +5,7 @@ these routes are mounted onto >>> '/api/maps' <<<
 
 const express = require('express');
 const router  = express.Router();
-const mapQueries = require('../db/queries/all_maps');
+const mapQueries = require('../db/queries/get_all_maps');
 
 router.get('/', (req, res) => {
   mapQueries.getAllMaps()
