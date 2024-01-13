@@ -1,3 +1,7 @@
+/* 
+these routes are mounted onto >>> /login <<< 
+(see server.js routing) 
+*/
 
 const express = require('express');
 const router = express.Router();

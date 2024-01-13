@@ -5,12 +5,26 @@ these routes are mounted onto >>> '/api/maps' <<<
 
 const express = require('express');
 const router  = express.Router();
-const mapQueries = require('../db/queries/get_all_maps');
+const mapQuery1 = require('../db/queries/get_all_maps');
+const mapQuery2 = require('../db/queries/get_map_by_id');
 
-router.get('/', (req, res) => {
-  mapQueries.getAllMaps()
+
+router.get('/all', (req, res) => {
+  mapQuery1.getAllMaps()
     .then(maps => {
       res.json({ maps });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
+
+router.get('/:id', (req, res) => {
+  mapQuery2.getMapByID()
+    .then(mymaps => {
+      res.json({ mymaps });
     })
     .catch(err => {
       res

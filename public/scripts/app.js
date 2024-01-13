@@ -3,7 +3,7 @@
 $(document).ready(function () {
   // Fetch map data using AJAX
   $.ajax({
-    url: '/api/maps',
+    url: '/api/maps/all',
     method: 'GET',
     dataType: 'json',
     success: function (response) {
