@@ -1,5 +1,5 @@
 -- locations example data
-INSERT INTO locations (map_id, title, description, latitude, longitude, image_url) VALUES
+INSERT INTO locations (map_id, title, description, location_lat, location_long, image_url) VALUES
   (1, 'Mocha Delight', 'A cafe with a diverse menu', 40.7128, -74.0060, 'https://example.com/image1.jpg'),
   (1, 'Cozy Cafe', 'Perfect for coffee enthusiasts', 40.7312, -73.9814, 'https://example.com/image2.jpg'),
   (2, 'Historic Monument', 'Symbol of our citys heritage', 40.6975, -74.0404, 'https://example.com/image3.jpg'),

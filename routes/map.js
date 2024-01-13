@@ -8,6 +8,7 @@ these routes are mounted onto >>> '/map' <<<
 const express = require('express');
 const router  = express.Router();
 const mapQuery = require('../db/queries/create_map');
+const mapQuery2 = require('../db/queries/get_map_by_mapid.js')
 
 router.get('/create', (req, res) => {
   const userId = req.cookies.user_id;
@@ -21,7 +22,16 @@ router.get('/view/:id', (req, res) => {
 
 router.get('/edit/:id', (req, res) => {
   const userId = req.cookies.user_id;
-  res.render('editmap.ejs', { user_id: userId });
+  const mapId = req.params.id;
+  // Fetch map data by ID, including center_lat and center_long
+  mapQuery2.getMapById(mapId).then((map) => {
+    res.render('editmap.ejs', {
+      user_id: userId,
+      map_id: map.id,
+      center_lat: map.center_lat,
+      center_long: map.center_long,
+    });
+  });
 });
 
 router.post('/create', (req, res) => {
