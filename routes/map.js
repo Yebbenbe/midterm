@@ -7,7 +7,7 @@ these routes are mounted onto >>> '/map' <<<
 
 const express = require('express');
 const router  = express.Router();
-const helpers = require('../db/queries/all_maps');
+const mapQuery = require('../db/queries/create_map');
 
 router.get('/create', (req, res) => {
   const userId = req.cookies.user_id;
@@ -26,7 +26,7 @@ router.get('/edit/:id', (req, res) => {
 });
 
 router.post('/create', (req, res) => {
-  helpers.createMap(req.body).then(
+  mapQuery.createMap(req.body).then(
     function() {
       res.redirect('/mymaps');
     }
