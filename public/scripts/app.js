@@ -1,7 +1,8 @@
-// Client facing scripts here
+// Scripts to render All maps + render maps owned by logged in user here: 
 
 $(document).ready(function () {
-  // Fetch map data using AJAX
+  
+  // Render all maps onto homepage index.ejs 
   $.ajax({
     url: '/api/maps/all',
     method: 'GET',
@@ -10,10 +11,8 @@ $(document).ready(function () {
       console.log('Received maps data:', response);
       const maps = response.maps;
 
-      // Reference the map container
       const $mapsContainer = $('#maps-container');
 
-      // Render each map card
       maps.forEach(function (map) {
         const $mapCard = $(`
           <div class="card mb-3">
@@ -29,8 +28,6 @@ $(document).ready(function () {
             </div>
           </div>
         `);
-
-        // Append the map card to the maps container
         $mapsContainer.append($mapCard);
       });
     },
@@ -39,6 +36,8 @@ $(document).ready(function () {
     },
   });
 
+
+  // Render maps belonging to logged in user onto mymaps.ejs
   $.ajax({
     url: '/api/maps/' + Cookies.get('user_id'),
     method: 'GET',
@@ -47,13 +46,11 @@ $(document).ready(function () {
       console.log('Received maps data:', response);
       const mymaps = response.mymaps;
 
-      // Reference the map container
       const $mymapsContainer = $('#my-maps-container');
 
-      // Render each map card
       mymaps.forEach(function (mymap) {
         const $mymapCard = $(`
-          <div class="card mb-3">
+          <div class="card mb-3" data-map-id="${mymap.map_id}">
             <img class="card-img-top" src="${mymap.image}" alt="Example Map Image">
             <div class="card-body">
               <h5 class="card-title">${mymap.title}</h5>
@@ -66,7 +63,6 @@ $(document).ready(function () {
             </div>
           </div>
         `); 
-        // Append the map card to the maps container
         $mymapsContainer.append($mymapCard);
       });
     },
@@ -74,4 +70,5 @@ $(document).ready(function () {
       console.error('Error fetching map data:', error);
     },
   });
+
 });
