@@ -1,5 +1,5 @@
 -- maps example data
-INSERT INTO maps (user_id, title, description, image, latitude, longitude) VALUES
+INSERT INTO maps (user_id, title, description, image, center_lat, center_long) VALUES
   (1, 'Best Cafes in Town', 'Explore amazing dining experiences', 'https://www.posist.com/restaurant-times/wp-content/uploads/2023/07/How-To-Start-A-Coffee-Shop-Business-A-Complete-Guide.jpg', 40.7128, -74.0060),
   (2, 'Historical Landmarks', 'Discover the rich history of our city', 'https://images.nationalgeographic.org/image/upload/v1638892272/EducationHub/photos/hoh-river-valley.jpg', 40.6975, -74.0404),
   (3, 'Hidden Gems', 'Locate less-known but fascinating places', 'https://cityfurnish.com/blog/wp-content/uploads/2023/08/beach-near-hotel-min.jpg', 40.7652, -73.9794),
