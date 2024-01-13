@@ -12,11 +12,11 @@ router.get('/create', (req, res) => {
   res.render('createmap.ejs');
 });
 
-router.get('/view/id', (req, res) => {
+router.get('/view/:id', (req, res) => {
   res.render('viewmap.ejs');
 });
 
-router.get('/edit/id', (req, res) => {
+router.get('/edit/:id', (req, res) => {
   res.render('editmap.ejs');
 });
 
