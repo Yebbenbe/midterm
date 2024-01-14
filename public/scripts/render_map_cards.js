@@ -56,7 +56,7 @@ $(document).ready(function () {
               <h5 class="card-title">${mymap.title}</h5>
               <p class="card-description">${mymap.description}</p>
               <p class="card-buttons">
-                <i class="fa-solid fa-eye" data-map-id="${mymap.map_id}"></i>
+                <i class="fa-solid fa-pen" data-map-id="${mymap.map_id}"></i>
                 <i class="fa-solid fa-trash"></i>
               </p>
             </div>

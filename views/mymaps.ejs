@@ -38,8 +38,8 @@
   </main>
 
   <script>
-    // function for when you click on the eye icon on mymaps page
-    $('#my-maps-container').on('click', '.fa-eye', function () {
+    // function for when you click on the pen icon on mymaps page
+    $('#my-maps-container').on('click', '.fa-pen', function () {
       const mapId = $(this).data('map-id');
       window.location.href = '/map/edit/'+mapId; // redirect to edit map page
     });
