@@ -1,4 +1,4 @@
-// Scripts to render All maps + render maps owned by logged in user here: 
+// Script to render All map cards + Render map cards owned by logged in user here: 
 
 $(document).ready(function () {
   
@@ -50,14 +50,13 @@ $(document).ready(function () {
 
       mymaps.forEach(function (mymap) {
         const $mymapCard = $(`
-          <div class="card mb-3" data-map-id="${mymap.map_id}">
+          <div class="card mb-3">
             <img class="card-img-top" src="${mymap.image}" alt="Example Map Image">
             <div class="card-body">
               <h5 class="card-title">${mymap.title}</h5>
               <p class="card-description">${mymap.description}</p>
               <p class="card-buttons">
-                <i class="fa-solid fa-eye"></i>
-                <i class="fa-solid fa-pen"></i>
+                <i class="fa-solid fa-eye" data-map-id="${mymap.map_id}"></i>
                 <i class="fa-solid fa-trash"></i>
               </p>
             </div>
