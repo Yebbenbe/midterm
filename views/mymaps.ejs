@@ -24,8 +24,7 @@
   <!-- App JS -->
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
-  <script defer src="/scripts/app.js"></script>
-  <script defer src="/scripts/edit_map.js"></script>
+  <script defer src="/scripts/render_map_cards.js"></script>
 </head>
 
 <body>
@@ -37,6 +36,14 @@
   <main id="my-maps-container">
     <!-- my maps should be dynamically added here -->
   </main>
+
+  <script>
+    // function for when you click on the eye icon on mymaps page
+    $('#my-maps-container').on('click', '.fa-eye', function () {
+      const mapId = $(this).data('map-id');
+      window.location.href = '/map/edit/'+mapId; // redirect to edit map page
+    });
+  </script>
 
 </body>
 </html>
