@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
   if (userId) {
     res.render('mymaps.ejs', { user_id: userId });
   } else {
-    res.status(403).send('<h1>403: Forbidden</h1><h2>Please check if you are logged in.</h2>');
+    res.status(403).send('<h1>403: Forbidden</h1><h2>Please log in first</h2>');
   }
 });
 

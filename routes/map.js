@@ -13,7 +13,11 @@ const mapQuery3 = require('../db/queries/create_locations')
 
 router.get('/create', (req, res) => {
   const userId = req.cookies.user_id;
-  res.render('createmap.ejs', { user_id: userId });
+  if (userId) {
+    res.render('createmap.ejs', { user_id: userId });
+  } else {
+    res.status(403).send('<h1>403: Forbidden</h1><h2>Please log in first</h2>');
+  }
 });
 
 router.get('/view/:id', (req, res) => {
