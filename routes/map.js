@@ -29,6 +29,7 @@ router.get('/edit/:id', (req, res) => {
     res.render('editmap.ejs', {
       user_id: userId,
       map_id: map.id,
+      map_title: map.title,
       center_lat: map.center_lat,
       center_long: map.center_long,
     });
