@@ -34,6 +34,15 @@
   <main id="maps-container">
     <!-- This is where dynamically loaded map cards will be inserted -->
   </main>
+
+  <script>
+    // function for when you click on the eye icon on ** homepage ** 
+    $('#maps-container').on('click', '.fa-eye', function () {
+      const mapId = $(this).data('map-id');
+      window.location.href = '/map/view/'+mapId;
+    });
+  </script>
+
 </body>
 
 </html>

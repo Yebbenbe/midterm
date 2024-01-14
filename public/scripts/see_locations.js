@@ -1,12 +1,12 @@
 // function to extract the map id from the url
 function getMapIdFromUrl() {
   const pathSegments = window.location.pathname.split('/');
-  const mapIdIndex = pathSegments.indexOf('edit') + 1;
-  return pathSegments[mapIdIndex];
+  const mapTypeIndex = pathSegments.indexOf('view') + 1 || pathSegments.indexOf('edit') + 1;
+  return pathSegments[mapTypeIndex];
 }
 
-const mapId = getMapIdFromUrl(); // Get the mapId when the script is loaded
-
+// Get the mapId when the script is loaded
+const mapId = getMapIdFromUrl(); 
 
 // function to fetch json locations object from API for selected map (signified by 'mapId')
 function getLocations() {

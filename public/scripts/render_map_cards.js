@@ -21,7 +21,7 @@ $(document).ready(function () {
               <h5 class="card-title">${map.title}</h5>
               <p class="card-description">${map.description}</p>
               <p class="card-buttons">
-                <i class="fa-solid fa-eye"></i>
+                <i class="fa-solid fa-eye" data-map-id="${map.map_id}"></i>
                 <i class="fa-solid fa-heart"></i>
                 <small>By ${map.username}</small>
               </p>

@@ -18,7 +18,17 @@ router.get('/create', (req, res) => {
 
 router.get('/view/:id', (req, res) => {
   const userId = req.cookies.user_id;
-  res.render('viewmap.ejs', { user_id: userId });
+  const mapId = req.params.id;
+  // Fetch map data by ID, including center_lat and center_long
+  mapQuery2.getMapById(mapId).then((map) => {
+    res.render('viewmap.ejs', {
+      user_id: userId,
+      map_id: map.id,
+      map_title: map.title,
+      center_lat: map.center_lat,
+      center_long: map.center_long,
+    });
+  });
 });
 
 router.get('/edit/:id', (req, res) => {
