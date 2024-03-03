@@ -59,7 +59,8 @@ router.post('/edit/:id', (req, res) => {
 });
 
 router.post('/create', (req, res) => {
-  mapQuery.createMap(req.body).then(
+  const userId = req.cookies['user_id'];
+  mapQuery.createMap(req.body, userId).then(
     function() {
       res.redirect('/mymaps');
     }
