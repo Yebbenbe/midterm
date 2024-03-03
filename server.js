@@ -42,8 +42,6 @@ app.use(cookieParser());
 /////////////////////////////////////////////////////////////////////////////
 
 // Separated Routes for each Resource
-const userApiRoutes = require('./routes/users-api');
-const usersRoutes = require('./routes/users');
 const loginRoutes = require('./routes/login');
 const logoutRoutes = require('./routes/logout');
 const mapRoutes = require('./routes/map');
@@ -52,8 +50,6 @@ const favouritesRoutes = require('./routes/favourites');
 const mapApiRoutes = require('./routes/maps-api');
 
 // Mount all resource routes. Note: Endpoints that return data (eg. JSON) usually start with `/api`
-app.use('/api/users', userApiRoutes);
-app.use('/users', usersRoutes);
 app.use('/login', loginRoutes);
 app.use('/logout', logoutRoutes);
 app.use('/map', mapRoutes);
