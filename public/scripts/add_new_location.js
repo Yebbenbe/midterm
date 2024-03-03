@@ -21,6 +21,7 @@ $(document).ready(function() {
       url: '/api/maps/locations/' + idOfMap,
       data: formData,
       success: function(response) {
+        $('html, body').animate({ scrollTop: 0 }, 'slow'); // scroll to top of page when form is submitted
         console.log('Location added successfully:', response);
       },
       error: function(error) {
