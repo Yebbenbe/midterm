@@ -8,8 +8,7 @@ const router  = express.Router();
 const mapQuery1 = require('../db/queries/get_all_maps');
 const mapQuery2 = require('../db/queries/get_maps_by_userid');
 const mapQuery3 = require('../db/queries/get_locations_by_mapid');
-const { createLocation } = require('../db/queries/create_locations');
-
+const mapQuery4 = require('../db/queries/create_locations');
 
 router.get('/all', (req, res) => {
   mapQuery1.getAllMaps()
@@ -50,14 +49,15 @@ router.get('/locations/:mapid', (req, res) => {
 });
 
 
-router.post('/locations/1', (req, res) => {
+router.post('/locations/:mapid', (req, res) => {
+  const mapId = req.params.mapid;
   const title = req.body['location-title'];
   const description = req.body['location-description'];
   const latitude = req.body['location-latitude'];
   const longitude = req.body['location-longitude'];
   const image_url = req.body['location-image'];
 
-  createLocation(title, description, latitude, longitude, image_url)
+  mapQuery4.createLocation(mapId, title, description, latitude, longitude, image_url)
     .then(newLocation => {
       res.status(201).json({ location: newLocation });
     })
