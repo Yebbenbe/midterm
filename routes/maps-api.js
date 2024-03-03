@@ -8,6 +8,7 @@ const router  = express.Router();
 const mapQuery1 = require('../db/queries/get_all_maps');
 const mapQuery2 = require('../db/queries/get_maps_by_userid');
 const mapQuery3 = require('../db/queries/get_locations_by_mapid');
+const { createLocation } = require('../db/queries/create_locations');
 
 
 router.get('/all', (req, res) => {
@@ -49,15 +50,16 @@ router.get('/locations/:mapid', (req, res) => {
 });
 
 
-router.post('/locations/:mapid', (req, res) => {
-  const mapId = req.params.mapid;
-  // Use req.body to get the form data
-  const locationData = req.body;
+router.post('/locations/1', (req, res) => {
+  const title = req.body['location-title'];
+  const description = req.body['location-description'];
+  const latitude = req.body['location-latitude'];
+  const longitude = req.body['location-longitude'];
+  const image_url = req.body['location-image'];
 
-  // Call the createLocation function to add the location to the database
-  mapQuery3.createLocation(mapId, locationData)
-    .then(() => {
-      res.status(201).send('Location added successfully');
+  createLocation(title, description, latitude, longitude, image_url)
+    .then(newLocation => {
+      res.status(201).json({ location: newLocation });
     })
     .catch(err => {
       res.status(500).json({ error: err.message });
